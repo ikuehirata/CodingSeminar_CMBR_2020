@@ -15,3 +15,4 @@ Coding seminar at CMBR using Python 3.7.
 3. Launch the installer and install with recommended settings (leave PATH option UNCHECKED)
 4. Open Anaconda Navigator, install VS Code
 5. Download Lesson1_Exercise1.ipynb from above
+6. For Windows users only: make Windows File Explorer to show the file extensions always (Ref: [Windows Support](https://support.microsoft.com/en-us/help/4479981/windows-10-common-file-name-extensions)).
