@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# plays Nessun Dorma on Agilent E4980A Precision LCR Meter
+# plays Nessun Dorma on B2912A Precision Source/Measure Unit
 
-import visa
+import pyvisa
 import traceback
 
 a4=440.
@@ -14,7 +14,7 @@ g5=783.991
 a5=880.
 b5=987.767
 
-musicList = [[d5,8],
+note = [[d5,8],
              [e5,8],
              [f5,8],
              [e5,8],
@@ -71,13 +71,12 @@ def listToSound(l):
 
 def main():
     # open instrument
-    rm = visa.ResourceManager("C:/Windows/System32/visa64.dll")
+    rm = pyvisa.ResourceManager()
     pia = rm.open_resource('USB0::0x0957::0x8E18::MY51140120::0::INSTR')
-
     pia.write(":SYST:BEEP:STAT ON") # enable beep
 
-    for l in musicList:
+    for l in note:
         freq, leng = listToSound(l)
-        pia.write(f":SYST:BEEP {freq},{leng}")
+        pia.write(f":SYST:BEEP {freq},{leng:.3f}")
 
 main()
